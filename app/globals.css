@@ -1,0 +1,900 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================
+   SF Pro Display Font Face Declarations
+   ===================================================== */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYMEDIUM.OTF') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYBOLD.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYLIGHTITALIC.OTF') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYTHINITALIC.OTF') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYULTRALIGHTITALIC.OTF') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYSEMIBOLDITALIC.OTF') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYBLACKITALIC.OTF') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SFPRODISPLAYHEAVYITALIC.OTF') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 0.9761 0.0041 91.4461;
+    --foreground: 0.2417 0.0298 269.8827;
+    --card: 1.0000 0 0;
+    --card-foreground: 0.2417 0.0298 269.8827;
+    --popover: 1.0000 0 0;
+    --popover-foreground: 0.2417 0.0298 269.8827;
+    --primary: 0.6333 0.0309 154.9039;
+    --primary-foreground: 1.0000 0 0;
+    --secondary: 0.8596 0.0291 119.9919;
+    --secondary-foreground: 0.2417 0.0298 269.8827;
+    --muted: 0.9251 0.0071 88.6450;
+    --muted-foreground: 0.5510 0.0234 264.3637;
+    --accent: 0.8242 0.0221 136.6092;
+    --accent-foreground: 0.2417 0.0298 269.8827;
+    --destructive: 0.5624 0.1743 26.1433;
+    --destructive-foreground: 1.0000 0 0;
+    --border: 0.9251 0.0071 88.6450;
+    --input: 1.0000 0 0;
+    --ring: 0.6333 0.0309 154.9039;
+    --radius: 0.35rem;
+    --shadow-color: #1a1f2e;
+    --shadow-opacity: 0.04;
+    --shadow-blur: 2px;
+    --shadow-spread: 0px;
+    --shadow-offset-x: 0px;
+    --shadow-offset-y: 1px;
+    --shadow-2xs: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.02);
+    --shadow-xs: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.02);
+    --shadow-sm: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.04), 0px 1px 2px -1px hsl(225 27.7778% 14.1176% / 0.04);
+    --shadow: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.04), 0px 1px 2px -1px hsl(225 27.7778% 14.1176% / 0.04);
+    --shadow-md: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.04), 0px 2px 4px -1px hsl(225 27.7778% 14.1176% / 0.04);
+    --shadow-lg: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.04), 0px 4px 6px -1px hsl(225 27.7778% 14.1176% / 0.04);
+    --shadow-xl: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.04), 0px 8px 10px -1px hsl(225 27.7778% 14.1176% / 0.04);
+    --shadow-2xl: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.10);
+
+    /* --font-antic is provided by Next.js font loader in layout.tsx */
+    --font-sf-pro: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * {
+    border-color: oklch(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: oklch(var(--background));
+    color: oklch(var(--foreground));
+    font-family: var(--font-antic);
+  }
+}
+
+/* =====================================================
+   Notion-like Scrollbar Styling
+   ===================================================== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(55, 53, 47, 0.16);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(55, 53, 47, 0.24);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* =====================================================
+   Logo Hover Bounce Animation
+   ===================================================== */
+@keyframes logo-rotate-bounce {
+  0% {
+    transform: rotate(-5deg);
+  }
+  22% {
+    transform: rotate(6deg);
+  }
+  42% {
+    transform: rotate(8deg);
+  }
+  58% {
+    transform: rotate(0deg);
+  }
+  68% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Hover target */
+.logo-group {
+  display: inline-flex;
+}
+
+/* Outer wrapper: scale ONLY (smoothly) */
+.logo-scale {
+  transform: scale(1);
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Satin / inner-shadow square behind the logo (matches the reference) */
+.logo-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  /* "satin" surface */
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(224, 224, 224, 0.92));
+
+  /* soft edge + inner shadows */
+  box-shadow:
+    /* stronger, smooth inset vignette from all sides */
+    inset 0 3px 6px rgba(35, 35, 35, 0.05),
+    inset 0 -3px 6px rgba(35, 35, 35, 0.05),
+    inset 3px 0 6px rgba(35, 35, 35, 0.05),
+    inset -3px 0 6px rgba(35, 35, 35, 0.05),
+    /* subtle overall depth */
+    0 6px 15px rgba(10, 25, 18, 0.02);
+
+  /* subtle border to define the square on light cards */
+  border: 1px solid rgba(10, 25, 18, 0.06);
+
+  transform: rotate(0deg);
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+/* Satin sheen overlay (very subtle) */
+.logo-badge::before {
+  content: '';
+  position: absolute;
+  inset: -30%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 45%,
+    rgba(255, 255, 255, 0.18) 55%,
+    transparent 70%
+  );
+  opacity: 0.28;
+  transform: translateX(-12%) translateY(-10%);
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+/* Logo image sizing inside the badge */
+.logo-img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+}
+
+/* Hover behavior: scale the whole unit (badge + logo) */
+.logo-group:hover .logo-scale {
+  transform: scale(1.08);
+}
+
+/* Rotation "bounce" applies to the combined unit (badge + logo) */
+.logo-group:hover .logo-badge {
+  animation: logo-rotate-bounce 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =====================================================
+   Mountain Float Animation
+   ===================================================== */
+@keyframes mountain-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.mountain-float {
+  animation: mountain-float 7.0s ease-in-out infinite;
+  animation-delay: var(--mountain-float-delay, 0s);
+}
+
+.mountain-art {
+  opacity: var(--mountain-opacity, 0.16);
+  filter: blur(0px);
+}
+
+/* =====================================================
+   Glass Input Shell
+   ===================================================== */
+.glass-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, var(--glass-alpha, 0.06));
+  border: 1px solid rgba(0, 0, 0, var(--glass-border-alpha, 0.12));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(var(--glass-blur, 18px)) saturate(1.15);
+  -webkit-backdrop-filter: blur(var(--glass-blur, 18px)) saturate(1.15);
+  transition:
+    background 260ms ease-out,
+    border-color 260ms ease-out;
+  will-change: backdrop-filter, background-color;
+  transform: translateZ(0);
+  pointer-events: none;
+}
+
+.glass-shell:hover::before {
+  background: rgba(255, 255, 255, var(--glass-alpha-hover, 0.1));
+  border-color: rgba(0, 0, 0, var(--glass-border-alpha-hover, 0.18));
+  backdrop-filter: blur(var(--glass-blur-hover, var(--glass-blur, 18px))) saturate(1.15);
+  -webkit-backdrop-filter: blur(var(--glass-blur-hover, var(--glass-blur, 18px))) saturate(1.15);
+}
+
+.glass-shell:focus-within::before {
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+/* =====================================================
+   Hero Sequenced Animations
+   
+   Timeline (slower):
+   - Words slide up one by one (0ms, 250ms, 500ms, 750ms)
+   - Divider fades in (1200ms)
+   - Caption slides up (1700ms)
+   - Button slides up (2300ms)
+   - Demo screen 3D zoom out-to-in (2900ms)
+   - Mountains fade in (4000ms)
+   ===================================================== */
+
+/* Word slide up animation with blur effect - smoother reveal */
+@keyframes word-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.6;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+/* Fade in animation - smoother easing */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Slide up animation - smoother with less movement */
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+/* 3D Zoom out to in (starts larger/closer, zooms to normal) - smoother easing */
+@keyframes zoom-out-to-in-3d {
+  0% {
+    opacity: 0;
+    transform: perspective(1200px) translateZ(150px) scale(1.15);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1200px) translateZ(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* Word container - no hard overflow, let blur handle the fade */
+.hero-word-container {
+  display: inline-block;
+  overflow: visible;
+  vertical-align: bottom;
+  position: relative;
+}
+
+/* Individual word animation - includes gradient text effect and blur */
+.hero-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60px);
+  filter: blur(16px);
+  animation: word-slide-up 900ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  /* Gradient text effect applied to each word */
+  background: linear-gradient(180deg, #000000 0%, #000000 40%, #949494 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  will-change: transform, opacity, filter;
+}
+
+/* Word timing - staggered delays (slower) */
+.hero-word-1 { animation-delay: 0ms; }
+.hero-word-2 { animation-delay: 250ms; }
+.hero-word-3 { animation-delay: 500ms; }
+.hero-word-4 { animation-delay: 750ms; }
+
+/* Divider animation - smoother fade */
+.hero-divider-animate {
+  opacity: 0;
+  animation: fade-in 900ms cubic-bezier(0.4, 0, 0.2, 1) 1200ms forwards;
+}
+
+/* Caption animation - smoother slide with blur */
+.hero-caption-animate {
+  opacity: 0;
+  filter: blur(4px);
+  animation: slide-up 1000ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 1700ms forwards;
+  will-change: transform, opacity, filter;
+}
+
+/* Button animation - smoother slide with blur */
+.hero-button-animate {
+  opacity: 0;
+  filter: blur(4px);
+  animation: slide-up 1000ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 2300ms forwards;
+  will-change: transform, opacity, filter;
+}
+
+/* Demo screen 3D zoom animation - zoom out to in with smoother easing */
+.hero-screen-animate {
+  opacity: 0;
+  transform-style: preserve-3d;
+  filter: blur(8px);
+  animation: zoom-out-to-in-3d 1400ms cubic-bezier(0.34, 1.56, 0.64, 1) 2900ms forwards;
+  will-change: transform, opacity, filter;
+}
+
+/* Mountains fade in last - smoother */
+.hero-mountain-animate {
+  opacity: 0;
+  animation: fade-in 1600ms cubic-bezier(0.4, 0, 0.2, 1) 4000ms forwards;
+}
+
+/* Legacy classes for compatibility */
+.page-in-card {
+  opacity: 0;
+  filter: blur(8px);
+  animation: zoom-out-to-in-3d 1400ms cubic-bezier(0.34, 1.56, 0.64, 1) 2900ms forwards;
+  will-change: transform, opacity, filter;
+}
+
+.page-in-mountain {
+  opacity: 0;
+  animation: fade-in 1600ms cubic-bezier(0.4, 0, 0.2, 1) 4000ms forwards;
+}
+
+/* =====================================================
+   Hero Button Styles (Preset)
+   ===================================================== */
+.hero-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 48px;
+  font-family: var(--font-sf-pro);
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  border: none;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 260ms ease-out;
+  
+  /* Gradient: top-left (#BFC9BB) to middle-bottom (#7C9082) */
+  background: linear-gradient(140deg, #BFC9BB 0%, #7C9082 50%);
+  
+  /* Inner white blurred shadows: stronger on left/right, subtle on top/bottom */
+  box-shadow:
+    inset 6px 0 12px -2px rgba(255, 255, 255, 0.30),
+    inset -6px 0 12px -2px rgba(255, 255, 255, 0.30),
+    inset 0 3px 6px -1px rgba(255, 255, 255, 0.15),
+    inset 0 -3px 6px -1px rgba(255, 255, 255, 0.15),
+    0 0.5px 1.5px -0.5px rgba(100, 120, 100, 0.05); 
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 8px 0 15px -4px rgba(255, 255, 255, 0.35),
+    inset -8px 0 14px -4px rgba(255, 255, 255, 0.35),
+    inset 0 4px 9px -3px rgba(255, 255, 255, 0.20),
+    inset 0 -4px 9px -3px rgba(255, 255, 255, 0.20),
+    0 1px 4px -1px rgba(100, 120, 100, 0.10); 
+}
+
+.hero-btn:active {
+  transform: translateY(0);
+}
+
+/* Shine sweep overlay for hero button */
+.hero-btn::before {
+  content: '';
+  position: absolute;
+  inset: -40% -60%;
+  background: linear-gradient(120deg, transparent 35%, rgba(255, 255, 255, 0.65) 50%, transparent 65%);
+  transform: translateX(-140%) skewX(-18deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-btn:hover::before {
+  animation: btn-shine-sweep 3000ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes btn-shine-sweep {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translateX(140%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
+/* =====================================================
+   Hero Heading Styles (Preset)
+   ===================================================== */
+.hero-heading {
+  font-family: var(--font-sf-pro);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+/* =====================================================
+   Hero Divider
+   ===================================================== */
+.hero-divider {
+  width: 100%;
+  max-width: 420px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.25) 50%, transparent 100%);
+  /* margin: 0 auto; */
+}
+
+/* =====================================================
+   Hero Caption
+   ===================================================== */
+.hero-caption {
+  font-family: var(--font-antic);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #3d3d3d;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   Demo Placeholder Box (grey area with top white glow)
+   ===================================================== */
+.demo-placeholder {
+  position: relative;
+  background: #4a4a4a;
+  border-radius: 20px;
+  box-shadow:
+    0 -30px 60px -10px rgba(255, 255, 255, 0.5),
+    0 -15px 35px -5px rgba(255, 255, 255, 0.3);
+}
+
+/* =====================================================
+   Radial Gradient Overlay (top of page)
+   ===================================================== */
+.radial-glow-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 500px;
+  background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =====================================================
+   How It Works Section
+   ===================================================== */
+.section-heading {
+  font-family: var(--font-sf-pro);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(180deg, #000000 0%, #000000 40%, #949494 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+/* Feature card with gradient (like hero button) */
+.feature-card-gradient {
+  position: relative;
+  background: linear-gradient(135deg, #BFC9BB 0%, #7C9082 40%);
+  border-radius: 20px;
+  overflow: hidden;
+ 
+}
+
+/* Feature card with light grey background */
+.feature-card-light {
+  position: relative;
+  background: #EBEBEB;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    inset 6px 0 10px -4px rgba(255, 255, 255, 0.7),
+    inset -6px 0 10px -4px rgba(255, 255, 255, 0.7),
+    inset 0 6px 10px -4px rgba(255, 255, 255, 0.7),
+    inset 0 -6px 10px -4px rgba(255, 255, 255, 0.7);
+}
+
+/* Card title - SF Pro Display Bold */
+.card-title {
+  font-family: var(--font-sf-pro);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Card subtitle - SF Pro Display Regular */
+.card-subtitle {
+  font-family: var(--font-sf-pro);
+  font-weight: 400;
+  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+/* =====================================================
+   Card Image Animations
+   ===================================================== */
+@keyframes slide-in-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Card image animation classes - triggered on scroll */
+.card-image-slide-right {
+  opacity: 0;
+  transform: translateX(100px);
+  will-change: transform, opacity;
+  transition: opacity 1000ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 1000ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-image-slide-right.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.card-image-slide-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  will-change: transform, opacity;
+  transition: opacity 1000ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 1000ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-image-slide-left.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered delays for each card image */
+.card-image-delay-1.animate { transition-delay: 100ms; }
+.card-image-delay-2.animate { transition-delay: 200ms; }
+.card-image-delay-3.animate { transition-delay: 300ms; }
+.card-image-delay-4.animate { transition-delay: 400ms; }
+
+/* =====================================================
+   Reduced Motion Preferences
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .logo-scale,
+  .logo-badge,
+  .logo-img {
+    transition: none;
+    animation: none;
+  }
+  .mountain-float {
+    animation: none;
+  }
+  .hero-word,
+  .hero-divider-animate,
+  .hero-caption-animate,
+  .hero-button-animate,
+  .hero-screen-animate,
+  .hero-mountain-animate,
+  .page-in-card,
+  .page-in-mountain {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+  .hero-btn::before {
+    animation: none;
+  }
+  .card-image-slide-right,
+  .card-image-slide-left,
+  .card-image-delay-1,
+  .card-image-delay-2,
+  .card-image-delay-3,
+  .card-image-delay-4 {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .card-image-slide-right.animate,
+  .card-image-slide-left.animate {
+    opacity: 1;
+    transform: none;
+  }
+  .faq-heading,
+  .faq-item-wrapper {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =====================================================
+   FAQ Section Styles
+   ===================================================== */
+.faq-heading {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.faq-heading.faq-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-item-wrapper {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.faq-item-wrapper.faq-item-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0 1.75rem 0;
+  font-family: var(--font-sf-pro);
+  font-weight: 500;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  text-align: left;
+  color: #1a1a1a;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 300ms ease;
+}
+
+.faq-question:hover {
+  color: #4a5a4a;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  color: #7C9082;
+  transition: transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.faq-icon-open {
+  transform: rotate(180deg);
+}
+
+.faq-answer-wrapper {
+  overflow: hidden;
+  transition: height 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.faq-answer {
+  font-family: var(--font-antic);
+  font-weight: 400;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  line-height: 1.7;
+  color: #555;
+  padding-bottom: 1.5rem;
+}
+
+.faq-link {
+  color: #7C9082;
+  text-decoration: underline;
+  text-decoration-color: rgba(124, 144, 130, 0.3);
+  text-underline-offset: 3px;
+  transition: color 300ms ease, text-decoration-color 300ms ease;
+}
+
+.faq-link:hover {
+  color: #5a6a5f;
+  text-decoration-color: rgba(90, 106, 95, 0.5);
+}
+
+/* =====================================================
+   Footer Styles
+   ===================================================== */
+.footer-link {
+  font-family: var(--font-sf-pro);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 300ms ease;
+}
+
+.footer-link:hover {
+  color: #BFC9BB;
+}
+
+.footer-social {
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 300ms ease, transform 300ms ease;
+}
+
+.footer-social:hover {
+  color: #BFC9BB;
+  transform: translateY(-2px);
+}
