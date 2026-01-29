@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { HeroHeading, HeroButton } from '@/components/presets'
+import HeroVideo from '@/components/HeroVideo'
 import ScrollAwareBlur from '@/components/ScrollAwareBlur'
 import ScrollTriggeredCards from '@/components/ScrollTriggeredCards'
 import FAQ from '@/components/FAQ'
@@ -100,10 +101,8 @@ export default function Home() {
             />
           </div>
 
-          {/* Demo Placeholder (grey area with white top glow) - 3D zoom in */}
-          <div className="relative z-10 hero-screen-animate mt-12">
-            <div className="demo-placeholder w-full aspect-[16/10] min-h-[350px] md:min-h-[450px]" />
-          </div>
+          {/* Hero video (placeholder styling, plays after 3D zoom-in animation) */}
+          <HeroVideo />
         </div>
       </section>
 
