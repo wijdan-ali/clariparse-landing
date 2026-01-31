@@ -64,9 +64,13 @@ const paidPlans: PricingPlan[] = [
   },
 ];
 
-const freeTrial = {
+const freeTrial: PricingPlan = {
   name: "Free Trial",
   description: "Try Clariparse risk-free. No credit card required.",
+  pricing: {
+    monthly: 0,
+    yearly: 0,
+  },
   features: [
     { text: "50 documents included", included: true },
     { text: "All Professional features", included: true },
