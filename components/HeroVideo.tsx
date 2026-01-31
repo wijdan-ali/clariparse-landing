@@ -30,7 +30,7 @@ export default function HeroVideo() {
       className="relative z-10 hero-screen-animate mt-12"
       onAnimationEnd={handleAnimationEnd}
     >
-      <div className="demo-placeholder w-full aspect-[16/10] min-h-[350px] md:min-h-[450px] overflow-hidden">
+      <div className="demo-placeholder w-full aspect-[16/9] overflow-hidden">
         <video
           ref={videoRef}
           src="/assets/hero.webm"

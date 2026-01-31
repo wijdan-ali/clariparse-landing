@@ -87,15 +87,15 @@ export default function Home() {
         </div>
 
         {/* Mountains + Demo Area Container */}
-        <div className="relative w-full max-w-4xl mt-28 md:mt-28">
-          {/* Mountains Image - positioned behind demo area */}
-          <div className="hero-mountain-animate absolute left-1/2 -translate-x-[54.5%] bottom-[200px] md:bottom-[300px] w-[120%] max-w-[900px] z-10 pointer-events-none">
+        <div className="relative isolate w-full max-w-4xl mt-20 md:mt-28">
+          {/* Mountains Image - behind demo area, visually centered */}
+          <div className="hero-mountain-animate absolute left-[46%] -translate-x-1/2 w-full bottom-[120px] md:bottom-[250px] z-0 pointer-events-none">
             <Image
               src="/assets/mountains.png"
               alt="Mountains"
               width={900}
               height={400}
-              className="w-full h-auto object-contain mountain-float"
+              className="w-full h-auto object-contain object-[46%_50%] mountain-float"
               style={{ '--mountain-opacity': '0.4', opacity: 0.4 } as React.CSSProperties}
               priority
             />
