@@ -1721,3 +1721,51 @@
 .blog-cta-button:hover svg {
   transform: translateX(4px);
 }
+
+/* =====================================================
+   Blog Post Page - Animate In (GPU-friendly: opacity + transform only)
+   ===================================================== */
+@keyframes blog-post-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.blog-post-animate .blog-post-hero-meta {
+  animation: blog-post-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.05s both;
+}
+
+.blog-post-animate .blog-post-hero-title {
+  animation: blog-post-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.12s both;
+}
+
+.blog-post-animate .blog-post-image-wrap {
+  animation: blog-post-in 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+
+.blog-post-animate .blog-post-body {
+  animation: blog-post-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
+}
+
+.blog-post-animate .blog-post-cta-wrap .blog-cta-animate-in,
+.blog-post-mobile-cta .blog-cta-animate-in {
+  animation: blog-post-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-post-animate .blog-post-hero-meta,
+  .blog-post-animate .blog-post-hero-title,
+  .blog-post-animate .blog-post-image-wrap,
+  .blog-post-animate .blog-post-body,
+  .blog-post-animate .blog-post-cta-wrap .blog-cta-animate-in,
+  .blog-post-mobile-cta .blog-cta-animate-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

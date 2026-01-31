@@ -309,33 +309,31 @@ function BillingToggle({
 
 export default function Pricing({ isPage = false }: PricingProps) {
   const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(isPage); // Start visible if it's a page
-  const [isYearly, setIsYearly] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isYearly, setIsYearly] = useState(true);
 
   useEffect(() => {
-    // If it's a standalone page, trigger animation after a short delay for smooth load
     if (isPage) {
-      const timer = setTimeout(() => setIsVisible(true), 100);
-      return () => clearTimeout(timer);
+      // Use rAF so animation runs after paint; avoids layout thrash and keeps main thread free
+      const rafId = requestAnimationFrame(() => {
+        requestAnimationFrame(() => setIsVisible(true));
+      });
+      return () => cancelAnimationFrame(rafId);
     }
 
-    // Otherwise use intersection observer for scroll-triggered animation
+    const el = sectionRef.current;
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-          }
-        });
+        if (entries[0]?.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05, rootMargin: '0px 0px -50px 0px' }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    observer.observe(el);
     return () => observer.disconnect();
   }, [isPage]);
 

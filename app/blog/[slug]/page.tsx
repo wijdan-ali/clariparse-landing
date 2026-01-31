@@ -52,12 +52,12 @@ export default function BlogPostPage() {
       </nav>
 
       {/* Blog Post Content */}
-      <article className="relative z-10 px-8 pt-8 pb-24 md:px-16 lg:px-24">
+      <article className="relative z-10 px-8 pt-8 pb-24 md:px-16 lg:px-24 blog-post-animate">
         <div className="max-w-6xl mx-auto">
           {/* Header Section - Full Width */}
           <div className="max-w-3xl">
             {/* Meta */}
-            <div className="flex items-center gap-3 mb-6">
+            <div className="blog-post-hero-meta flex items-center gap-3 mb-6">
               <span className="blog-post-category">{blogPost.category}</span>
               <span className="blog-post-meta">{blogPost.date}</span>
               <span className="blog-post-meta">·</span>
@@ -65,11 +65,11 @@ export default function BlogPostPage() {
             </div>
 
             {/* Title */}
-            <h1 className="blog-post-title">{blogPost.title}</h1>
+            <h1 className="blog-post-hero-title blog-post-title">{blogPost.title}</h1>
           </div>
 
           {/* Featured Image - Full Width */}
-          <div className="blog-post-image-wrapper-full">
+          <div className="blog-post-image-wrap blog-post-image-wrapper-full">
             <Image
               src={blogPost.image}
               alt={blogPost.title}
@@ -84,7 +84,7 @@ export default function BlogPostPage() {
             {/* Main Content */}
             <div className="flex-1 max-w-3xl">
               {/* Blog Content - Use these tags as template */}
-              <div className="blog-post-content">
+              <div className="blog-post-body blog-post-content">
                 <h2>The Challenge</h2>
                 <p>
                   Henderson & Associates, a mid-sized law firm specializing in corporate litigation, 
@@ -182,9 +182,9 @@ export default function BlogPostPage() {
             </div>
 
             {/* Sticky CTA Sidebar */}
-            <aside className="hidden lg:block w-80 flex-shrink-0">
+            <aside className="blog-post-cta-wrap hidden lg:block w-80 flex-shrink-0">
               <div className="blog-cta-sticky">
-                <div className="blog-cta-box">
+                <div className="blog-cta-box blog-cta-animate-in">
                   <h3 className="blog-cta-title">
                     Try Clariparse free for 14 days
                   </h3>
@@ -211,8 +211,8 @@ export default function BlogPostPage() {
       </article>
 
       {/* Mobile CTA */}
-      <div className="lg:hidden px-8 pb-12 md:px-16">
-        <div className="blog-cta-box">
+      <div className="blog-post-animate blog-post-mobile-cta lg:hidden px-8 pb-12 md:px-16">
+        <div className="blog-cta-box blog-cta-animate-in">
           <h3 className="blog-cta-title">
             Try Clariparse free for 14 days
           </h3>
